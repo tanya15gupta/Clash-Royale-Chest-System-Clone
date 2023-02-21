@@ -4,11 +4,17 @@ ___
 ___
 # Screenshots
 ___
-![screenshot](/Screenshots/1.jpg) ![screenshot](/Screenshots/2.jpg)
+![screenshot](/Screenshots/1.jpg) 
 ___
-![screenshot](/Screenshots/3.jpg) ![screenshot](/Screenshots/4.jpg)
+![screenshot](/Screenshots/2.jpg)
 ___
-![screenshot](/Screenshots/5.jpg) ![screenshot](/Screenshots/6.jpg)
+![screenshot](/Screenshots/3.jpg) 
+___
+![screenshot](/Screenshots/4.jpg)
+___
+![screenshot](/Screenshots/5.jpg) 
+___
+![screenshot](/Screenshots/6.jpg)
 ___
 ___
 # Features
