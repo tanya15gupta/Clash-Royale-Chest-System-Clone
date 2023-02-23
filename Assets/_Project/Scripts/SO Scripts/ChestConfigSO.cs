@@ -5,9 +5,9 @@ using UnityEngine;
 public class ChestConfigSO : ScriptableObject
 {
 	public ChestConfig[] ChestConfigs;
-	
+
 	[Serializable]
-    public class ChestConfig
+	public class ChestConfig
 	{
 		public ChestTypes ChestType;
 		public ChestSO ChestScriptableObject;

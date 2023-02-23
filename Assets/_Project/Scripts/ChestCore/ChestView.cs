@@ -11,7 +11,7 @@ namespace ChestSystem.Chest
 		public TextMeshProUGUI ChestTimerText { get; private set; }
 		private void Start()
 		{
-			ChestTimerText= GetComponentInChildren<TextMeshProUGUI>();
+			ChestTimerText = GetComponentInChildren<TextMeshProUGUI>();
 			ChestTimerText.text = m_ChestController.GetChestTypeName();
 		}
 		public void SetChestImage(Texture _chestTexture)

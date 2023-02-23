@@ -1,8 +1,8 @@
 public enum ChestTypes
 {
-    None,
-    Common,
-    Epic,
-    Rare,
-    Legendary
+	None,
+	Common,
+	Epic,
+	Rare,
+	Legendary
 }

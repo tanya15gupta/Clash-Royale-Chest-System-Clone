@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace ChestSystem
 {
-    public class SlotController : MonoBehaviour
-    {
-        private bool b_IsEmpty;
+	public class SlotController : MonoBehaviour
+	{
+		private bool b_IsEmpty;
 		private ChestController chestController;
 		private void Start()
 		{
@@ -13,17 +13,17 @@ namespace ChestSystem
 		}
 		public bool GetIsSlotEmpty() => b_IsEmpty;
 
-		public void SetSlotIsEmpty() 
-		{ 
+		public void SetSlotIsEmpty()
+		{
 			b_IsEmpty = true;
 			chestController = null;
-		} 
+		}
 
 		public void SpawnChest()
 		{
 			chestController = ChestService.Instance.CreateChest(gameObject.transform);
 			chestController.SetSlotController(this);
-			b_IsEmpty = false;	
+			b_IsEmpty = false;
 		}
-    }
+	}
 }

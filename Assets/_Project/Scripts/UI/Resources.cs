@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace ChestSystem
 {
-    public class Resources : MonoBehaviour
-    {
-        [SerializeField] private TextMeshProUGUI m_Coins;
-        [SerializeField] private TextMeshProUGUI m_Gems;
+	public class Resources : MonoBehaviour
+	{
+		[SerializeField] private TextMeshProUGUI m_Coins;
+		[SerializeField] private TextMeshProUGUI m_Gems;
 		private int m_GemsCount;
 		private int m_CoinsCount;
 		private void Start()

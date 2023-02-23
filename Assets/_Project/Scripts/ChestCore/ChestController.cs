@@ -18,7 +18,7 @@ namespace ChestSystem.Chest
 		private int m_CoinsCount;
 		private int timerToGems;
 		public SlotController m_SlotController { get; private set; }
-		public ChestController(ChestView _chestView, ChestModel _chestModal, Transform _spawnPoint) 
+		public ChestController(ChestView _chestView, ChestModel _chestModal, Transform _spawnPoint)
 		{
 			m_ChestModel = _chestModal;
 			m_ChestView = GameObject.Instantiate<ChestView>(_chestView, _spawnPoint);
@@ -32,7 +32,7 @@ namespace ChestSystem.Chest
 			m_ChestService = ChestService.Instance;
 		}
 
-		public string GetChestTypeName() =>	m_ChestModel.name;
+		public string GetChestTypeName() => m_ChestModel.name;
 
 		public void SetSlotController(SlotController _controller)
 		{
@@ -62,8 +62,6 @@ namespace ChestSystem.Chest
 
 		private void EnterUnlockedState()
 		{
-			//m_UIService.ModalWindow.PrintMessage(true, "Congratulations!", "You received: ", m_GemsCount.ToString(), );
-			m_CurrentState = ChestStates.Unlocking;
 			m_UIService.Resource.IncreaseCounter(m_GemsCount, m_CoinsCount);
 			m_ChestView.DestroyChest();
 		}
@@ -76,10 +74,6 @@ namespace ChestSystem.Chest
 				return;
 			}
 			m_UIService.ModalWindow.PrintMessage(true, "I'm busy!", "Another chest is unlocking");
-			/*else
-			{
-				uIService.ModalWindow.PrintMessage(true, "I'm busy!", "Please wait till the chests in the queue get Unlocked.", null, null, false, false, false);
-			}*/
 		}
 		private void EnterUnlockingState()
 		{
@@ -92,21 +86,22 @@ namespace ChestSystem.Chest
 		private void OpenInstantly()
 		{
 			timerToGems = (int)MathF.Ceiling(m_Timer) * 1;
-			if(m_UIService.Resource.GetGemsCount() < timerToGems)
+			if (m_UIService.Resource.GetGemsCount() < timerToGems)
 			{
 				m_UIService.ModalWindow.PrintMessage(true, "Can't process", "You do not have enough gems for opening this chest");
 				return;
 			}
-			m_UIService.ModalWindow.PrintMessage(true, "Open Chest", "Do you want to open chest using gems?", 0,timerToGems, false, OnGemsDecrease);
+			m_UIService.ModalWindow.PrintMessage(true, "Open Chest", "Do you want to open chest using gems?", 0, timerToGems, false, OnGemsDecrease);
 		}
 
 		private void OnGemsDecrease()
 		{
 			m_UIService.Resource.DecreaseGemsCounter(timerToGems);
-			m_ChestView.DestroyChest();
+			EnterUnlockedState();
+			m_ChestService.UnlockChestInQueue();
 		}
 
-		
+
 		public async void StartTimer()
 		{
 			float minutes, seconds;
